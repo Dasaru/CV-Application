@@ -8,13 +8,28 @@ export default function Education() {
 
   return (
     <>
-      <p>Education</p>
-      <div className="container">
-        School Name: {submitted ? name : <input type="text" onChange={e => setName(e.target.value)} value={name} />}
-        Major: {submitted ? major : <input type="text" onChange={e => setMajor(e.target.value)} value={major} />}
-        Date: {submitted ? date : <input type="date" onChange={e => setDate(e.target.value)} value={date} />}
+      <h2>Education</h2>
+      <div className={submitted ? "container one-column" : "container"}>
+        {submitted ? <div>{"School Name: " + name}</div> : (
+          <>
+            <label htmlFor="eduName">School Name: </label>
+            <input id="eduName" type="text" onChange={e => setName(e.target.value)} value={name} />
+          </>
+        )}
+        {submitted ? <div>{"Major: " + major}</div> : (
+          <>
+            <label htmlFor="eduMajor">Major: </label>
+            <input id="eduMajor" type="text" onChange={e => setMajor(e.target.value)} value={major} />
+          </>
+        )}
+        {submitted ? <div>{"Date: " + date}</div> : (
+          <>
+            <label htmlFor="eduDate">Date: </label>
+            <input id="eduDate" type="date" onChange={e => setDate(e.target.value)} value={date} />
+          </>
+        )}
       </div>
-      <button onClick={() => setSubmitted(!submitted)}>{submitted ? "Edit" : "Submit"}</button>
+      <button className={submitted && "edit"} onClick={() => setSubmitted(!submitted)}>{submitted ? "Edit" : "Submit"}</button>
     </>
   )
 }

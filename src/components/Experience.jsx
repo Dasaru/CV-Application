@@ -13,15 +13,40 @@ export default function Experience() {
 
   return (
     <>
-      <p>Experience</p>
-      <div className="container">
-        Company Name: {submitted ? name : <input type="text" onChange={e => setName(e.target.value)} value={name} />}
-        Title: {submitted ? title : <input type="text" onChange={e => setTitle(e.target.value)} value={title} />}
-        Job Description: {submitted ? jobDesc : <input type="text" onChange={e => setJobDesc(e.target.value)} value={jobDesc} />}
-        Date Start: {submitted ? dateStart : <input type="date" onChange={e => setDateStart(e.target.value)} value={dateStart} />}
-        Date End: {submitted ? dateEnd : <input type="date" onChange={e => setDateEnd(e.target.value)} min={dateStart} max={today} value={dateEnd} />}
+      <h2>Experience</h2>
+      <div className={submitted ? "container one-column" : "container"}>
+        {submitted ? <div>{"Company Name: " + name}</div> : (
+          <>
+            <label htmlFor="expName">Company Name: </label>
+            <input id="expName" type="text" onChange={e => setName(e.target.value)} value={name} />
+          </>
+        )}
+        {submitted ? <div>{"Title: " + title}</div> : (
+          <>
+            <label htmlFor="expTitle">Title: </label>
+            <input id="expTitle" type="text" onChange={e => setTitle(e.target.value)} value={title} />
+          </>
+        )}
+        {submitted ? <div>{"Job Description: " + jobDesc}</div> : (
+          <>
+            <label htmlFor="expDesc">Job Description: </label>
+            <input id="expDesc" type="text" onChange={e => setJobDesc(e.target.value)} value={jobDesc} />
+          </>
+        )}
+        {submitted ? <div>{"Date Start: " + dateStart}</div> : (
+          <>
+            <label htmlFor="expDateStart">Date Start: </label>
+            <input id="expDateStart" type="date" onChange={e => setDateStart(e.target.value)} value={dateStart} />
+          </>
+        )}
+        {submitted ? <div>{"Date End: " + dateEnd}</div> : (
+          <>
+            <label htmlFor="expDateEnd">Date End: </label>
+            <input id="expDateEnd" type="date" onChange={e => setDateEnd(e.target.value)} min={dateStart} max={today} value={dateEnd} />
+          </>
+        )}
       </div>
-      <button onClick={() => setSubmitted(!submitted)}>{submitted ? "Edit" : "Submit"}</button>
+      <button className={submitted && "edit"} onClick={() => setSubmitted(!submitted)}>{submitted ? "Edit" : "Submit"}</button>
     </>
   )
 }

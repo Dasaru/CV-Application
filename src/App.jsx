@@ -7,8 +7,11 @@ function App() {
   return (
     <>
       <h1>CV Application</h1>
+      <hr />
       <GeneralInfo />
+      <hr />
       <Education />
+      <hr />
       <Experience />
     </>
   )

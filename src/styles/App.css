@@ -1,4 +1,47 @@
 body {
   font-family: sans-serif;
   background-color: #f2fff3;
+  font-size: 1.2em;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  width: 400px;
+  row-gap: 10px;
+  padding-bottom: 20px;
+}
+
+hr {
+  width: 500px;
+  margin-left: 0;
+  border: 1px solid #666;
+}
+
+.one-column {
+  grid-template-columns: 1fr;
+}
+
+.container label {
+  margin-left: auto;
+  margin-right: 10px;
+  height: 1.3em;
+}
+
+button {
+  display: inline-block;
+  font-weight: bold;
+  width: 100px;
+  height: 28px;
+  border: 1px solid black;
+  border-radius: 8px;
+  background-color: rgb(178, 230, 250);
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.edit {
+  background-color: rgb(255, 219, 152);
 }
